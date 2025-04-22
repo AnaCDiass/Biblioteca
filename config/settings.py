@@ -19,10 +19,9 @@ INSTALLED_APPS = [
     'app',
 ]
 
-# o template usado
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SssionMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',  # Corrigido "SssionMiddleware"
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -35,9 +34,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'app/templates'),
-        ],
+        'DIRS': [os.path.join(BASE_DIR, 'app/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -55,7 +52,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bibliotecagcd ',
+        'NAME': 'bibliotecag',
         'USER': 'postgres',
         'PASSWORD': '123456',
         'HOST': 'localhost',
@@ -65,7 +62,7 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityVali\n            dator',
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
@@ -88,10 +85,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATIC_ROOT = os.path.join(STATIC_URL, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # Corrigido: antes era baseado em STATIC_URL
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "app/static/"),
+    os.path.join(BASE_DIR, 'app/static/'),
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
