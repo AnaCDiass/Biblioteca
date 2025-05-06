@@ -53,6 +53,9 @@
           <td>{{ livro.preco }}</td>
           <td>{{ livro.data_plub }}</td>
           <td>{{ livro.status }}</td>
+          <td>
+            <a href="{% url 'editar' livro.id %}" class="btn btn-primary">Editar</a>
+          </td>
         </tr>
         {% endfor %}
       </tbody>

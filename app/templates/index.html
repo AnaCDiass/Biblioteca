@@ -68,6 +68,7 @@
                 <th scope="col">Data Publicação</th>
                 <th scope="col">Status</th>
                 <th scope="col">Excluir</th>
+                <th scope="col">Editar</th>
             </tr>
         </thead>
         <tbody>
@@ -85,7 +86,8 @@
                         <td>{{ livro.data_plub }}</td>
                         <td>{{ livro.status }}</td>
                         <td><a href="delete/{{ livro.id }}"class="btn btn-danger">Excluir</a></td>
-                </tr>
+                        <td><a href="editar/{{ livros.id }}" class="btn btn-warning">Editar</a></td>
+                    </tr>
                     {% endfor %}
             </tbody>
     </table>
